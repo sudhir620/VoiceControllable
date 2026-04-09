@@ -69,10 +69,7 @@ class MainActivity : AppCompatActivity() {
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
 
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-        intent.putExtra(
-            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-        )
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
 
         btnVoice.setOnClickListener {
             tts.speak("Speak now", TextToSpeech.QUEUE_FLUSH, null, "TTS_ID")
@@ -87,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 val data = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 val spokenText = data?.get(0)?.lowercase() ?: ""
 
-                Log.d("SPEAK_TASKS", "onResults: ${spokenText}")
+                Log.d("SPEAK_TASKS", "onResults: $spokenText")
 
                 handleVoiceCommand(spokenText)
             }
@@ -109,7 +106,7 @@ class MainActivity : AppCompatActivity() {
     private fun handleVoiceCommand(command: String) {
         if (command.startsWith("add")) {
             btnAdd.performClick()
-        }else{
+        } else {
             val task = command.removePrefix("add ")
             input.setText(task)
         }

@@ -6,16 +6,14 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 
-class TodoAdapter(private val list: MutableList<TodoItem>) :
-    RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
+class TodoAdapter(private val list: MutableList<TodoItem>) : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val checkbox: CheckBox = view.findViewById(R.id.checkbox)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_todo, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
         return ViewHolder(view)
     }
 
