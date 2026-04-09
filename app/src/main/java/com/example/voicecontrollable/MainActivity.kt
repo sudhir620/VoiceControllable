@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        input = findViewById<EditText>(R.id.inputTask)
-        btnAdd = findViewById<Button>(R.id.btnAdd)
+        input = findViewById(R.id.inputTask)
+        btnAdd = findViewById(R.id.btnAdd)
         val btnVoice = findViewById<Button>(R.id.btnVoice)
         val recycler = findViewById<RecyclerView>(R.id.recyclerView)
 
